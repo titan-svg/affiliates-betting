@@ -81,3 +81,48 @@ export interface SiteSettings {
   emailProvider: string;
   aiProvider: string;
 }
+
+export type SportType = 'football' | 'basketball' | 'baseball' | 'hockey' | 'soccer' | 'mma' | 'boxing' | 'golf' | 'tennis' | 'esports';
+
+export interface League {
+  id: string;
+  name: string;
+  shortName: string;
+  sport: SportType;
+  logo: string;
+  country: string;
+  featured: boolean;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  coverImage: string;
+  category: 'picks' | 'news' | 'analysis' | 'guides' | 'promotions';
+  sport: SportType;
+  league?: string;
+  author: string;
+  publishedAt: string;
+  readTime: number;
+  featured: boolean;
+  tags: string[];
+}
+
+export interface MediaPartner {
+  id: string;
+  name: string;
+  logo: string;
+}
+
+export interface SportCategory {
+  id: string;
+  name: string;
+  slug: string;
+  icon: string;
+  description: string;
+  leagues: string[];
+  featured: boolean;
+}

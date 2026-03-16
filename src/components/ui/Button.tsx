@@ -22,11 +22,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white focus:ring-primary-500 shadow-lg hover:shadow-xl',
-    secondary: 'bg-dark-800 hover:bg-dark-700 text-white focus:ring-dark-500',
-    outline: 'border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white focus:ring-primary-500',
-    ghost: 'text-dark-300 hover:text-white hover:bg-dark-800 focus:ring-dark-500',
-    gold: 'bg-gradient-to-r from-secondary-500 to-secondary-400 hover:from-secondary-600 hover:to-secondary-500 text-dark-900 focus:ring-secondary-500 shadow-lg hover:shadow-xl',
+    primary: 'bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-700 hover:to-accent-600 text-white focus:ring-accent-500 shadow-lg hover:shadow-xl',
+    secondary: 'bg-navy-600 hover:bg-navy-500 text-white focus:ring-navy-500',
+    outline: 'border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 focus:ring-gold-500',
+    ghost: 'text-dark-300 hover:text-white hover:bg-navy-600 focus:ring-navy-500',
+    gold: 'bg-gradient-gold hover:brightness-110 text-navy-900 font-bold focus:ring-gold-500 shadow-lg hover:shadow-xl',
   };
 
   const sizes = {

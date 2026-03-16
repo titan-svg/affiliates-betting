@@ -16,7 +16,7 @@ export const Card: React.FC<CardProps> = ({
   dark = false,
 }) => {
   const baseStyles = 'rounded-2xl overflow-hidden';
-  const bgStyles = dark ? 'bg-dark-800 border border-dark-700' : 'bg-white shadow-lg';
+  const bgStyles = dark ? 'bg-navy-800 border border-navy-700' : 'bg-white shadow-lg';
   const paddingStyles = noPadding ? '' : 'p-6';
   const hoverStyles = hover ? 'card-hover cursor-pointer' : '';
 
