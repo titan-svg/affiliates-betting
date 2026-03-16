@@ -22,7 +22,7 @@ const config: Config = {
           800: '#92400e',
           900: '#78350f',
         },
-        // Navy for backgrounds (like sportsbooks)
+        // Navy for accents and text
         navy: {
           50: '#f0f4ff',
           100: '#e0e7ff',
@@ -35,6 +35,19 @@ const config: Config = {
           800: '#0c1220',
           900: '#080c16',
           950: '#040610',
+        },
+        // Red accent (like BetUS)
+        red: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         },
         // Blue accent
         accent: {
@@ -49,19 +62,18 @@ const config: Config = {
           800: '#1e40af',
           900: '#1e3a8a',
         },
-        // Keep dark for compatibility
-        dark: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+        // Light theme grays
+        light: {
+          50: '#ffffff',
+          100: '#fafafa',
+          200: '#f5f5f5',
+          300: '#e5e5e5',
+          400: '#d4d4d4',
+          500: '#a3a3a3',
+          600: '#737373',
+          700: '#525252',
+          800: '#404040',
+          900: '#262626',
         },
       },
       fontFamily: {
@@ -69,10 +81,10 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
+        'gradient-red': 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)',
         'gradient-navy': 'linear-gradient(135deg, #1a2744 0%, #0f172a 100%)',
-        'gradient-hero': 'linear-gradient(180deg, #1a2744 0%, #0f172a 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
-        'gradient-card': 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+        'gradient-hero': 'linear-gradient(180deg, #1a2744 0%, #10182c 100%)',
+        'gradient-light': 'linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%)',
       },
     },
   },

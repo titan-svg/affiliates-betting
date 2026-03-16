@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button, Card, Badge } from '@/components/ui';
 import {
   TrophyIcon,
   ClockIcon,
@@ -37,24 +36,24 @@ export default function ArticlesPage() {
   const featuredArticle = articles.find(a => a.featured);
 
   return (
-    <main className="pt-[104px] bg-navy-900 min-h-screen">
+    <main className="pt-[104px] bg-light-100 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-navy py-16">
+      <section className="bg-navy-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-14 h-14 bg-gold-500 rounded-xl flex items-center justify-center">
-              <TrophyIcon className="w-8 h-8 text-navy-900" />
+            <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center">
+              <TrophyIcon className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl md:text-5xl font-black text-white">The Locker Room</h1>
-              <p className="text-dark-400">Expert picks, analysis & betting guides</p>
+              <h1 className="text-4xl md:text-5xl font-black text-white">Sports News & Picks</h1>
+              <p className="text-light-400">Expert analysis and betting guides</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="bg-navy-800 border-y border-navy-700 sticky top-[104px] z-40">
+      <section className="bg-white border-b border-light-300 sticky top-[104px] z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 py-4 overflow-x-auto">
             {/* Category Filters */}
@@ -65,8 +64,8 @@ export default function ArticlesPage() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                     activeCategory === category.id
-                      ? 'bg-gold-500 text-navy-900'
-                      : 'bg-navy-700 text-dark-300 hover:bg-navy-600'
+                      ? 'bg-red-600 text-white'
+                      : 'bg-light-200 text-navy-700 hover:bg-light-300'
                   }`}
                 >
                   {category.name}
@@ -74,7 +73,7 @@ export default function ArticlesPage() {
               ))}
             </div>
 
-            <div className="h-6 w-px bg-navy-600" />
+            <div className="h-6 w-px bg-light-300" />
 
             {/* Sport Filters */}
             <div className="flex items-center gap-2">
@@ -82,8 +81,8 @@ export default function ArticlesPage() {
                 onClick={() => setActiveSport('all')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                   activeSport === 'all'
-                    ? 'bg-accent-500 text-white'
-                    : 'bg-navy-700 text-dark-300 hover:bg-navy-600'
+                    ? 'bg-navy-800 text-white'
+                    : 'bg-light-200 text-navy-700 hover:bg-light-300'
                 }`}
               >
                 All Sports
@@ -94,8 +93,8 @@ export default function ArticlesPage() {
                   onClick={() => setActiveSport(sport.id)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all flex items-center gap-2 ${
                     activeSport === sport.id
-                      ? 'bg-accent-500 text-white'
-                      : 'bg-navy-700 text-dark-300 hover:bg-navy-600'
+                      ? 'bg-navy-800 text-white'
+                      : 'bg-light-200 text-navy-700 hover:bg-light-300'
                   }`}
                 >
                   <span>{sport.icon}</span>
@@ -109,10 +108,10 @@ export default function ArticlesPage() {
 
       {/* Featured Article */}
       {featuredArticle && activeCategory === 'all' && activeSport === 'all' && (
-        <section className="py-12 bg-navy-900">
+        <section className="py-12 bg-light-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link href={`/articles/${featuredArticle.slug}`}>
-              <Card dark hover className="grid md:grid-cols-2 gap-8 p-0 overflow-hidden">
+              <div className="bg-white rounded-2xl overflow-hidden border border-light-300 hover:shadow-xl transition-all grid md:grid-cols-2 gap-0">
                 <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image
                     src={featuredArticle.coverImage}
@@ -121,24 +120,24 @@ export default function ArticlesPage() {
                     className="object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="gold">
-                      <FireIcon className="w-3 h-3 mr-1" />
+                    <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded flex items-center gap-1">
+                      <FireIcon className="w-3 h-3" />
                       Featured
-                    </Badge>
+                    </span>
                   </div>
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
-                    <Badge variant="primary">{featuredArticle.league || featuredArticle.sport}</Badge>
-                    <Badge variant="primary" size="sm">{featuredArticle.category}</Badge>
+                    <span className="bg-navy-800 text-white text-xs font-medium px-2 py-1 rounded">{featuredArticle.league || featuredArticle.sport}</span>
+                    <span className="bg-red-100 text-red-600 text-xs font-medium px-2 py-1 rounded">{featuredArticle.category}</span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 hover:text-gold-400 transition-colors">
+                  <h2 className="text-2xl md:text-3xl font-bold text-navy-800 mb-4 hover:text-red-600 transition-colors">
                     {featuredArticle.title}
                   </h2>
-                  <p className="text-dark-400 mb-6">
+                  <p className="text-light-600 mb-6">
                     {featuredArticle.excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-dark-500 text-sm">
+                  <div className="flex items-center gap-4 text-light-500 text-sm">
                     <span className="flex items-center gap-1">
                       <UserIcon className="w-4 h-4" />
                       {featuredArticle.author}
@@ -150,105 +149,111 @@ export default function ArticlesPage() {
                     <span>{featuredArticle.publishedAt}</span>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Link>
           </div>
         </section>
       )}
 
       {/* Articles Grid */}
-      <section className="py-12 bg-navy-800">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-navy-800">
               {activeCategory === 'all' ? 'Latest Articles' : categories.find(c => c.id === activeCategory)?.name}
               {activeSport !== 'all' && ` - ${sportCategories.find(s => s.id === activeSport)?.name}`}
             </h2>
-            <span className="text-dark-500">{filteredArticles.length} articles</span>
+            <span className="text-light-500">{filteredArticles.length} articles</span>
           </div>
 
           {filteredArticles.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredArticles.map((article) => (
                 <Link key={article.id} href={`/articles/${article.slug}`}>
-                  <Card dark hover className="h-full">
-                    <div className="relative h-48 mb-4 rounded-xl overflow-hidden">
+                  <div className="bg-light-100 rounded-2xl overflow-hidden border border-light-300 hover:shadow-lg transition-all h-full">
+                    <div className="relative h-48">
                       <Image
                         src={article.coverImage}
                         alt={article.title}
                         fill
-                        className="object-cover transition-transform hover:scale-105"
+                        className="object-cover"
                       />
                       {article.featured && (
                         <div className="absolute top-3 left-3">
-                          <Badge variant="gold" size="sm">
-                            <FireIcon className="w-3 h-3 mr-1" />
+                          <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                            <FireIcon className="w-3 h-3" />
                             Hot
-                          </Badge>
+                          </span>
                         </div>
                       )}
                     </div>
 
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="primary" size="sm">{article.league || article.sport}</Badge>
-                      <Badge variant="gold" size="sm">{article.category}</Badge>
+                    <div className="p-5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="bg-navy-800 text-white text-xs font-medium px-2 py-1 rounded">{article.league || article.sport}</span>
+                        <span className="bg-gold-100 text-gold-700 text-xs font-medium px-2 py-1 rounded">{article.category}</span>
+                      </div>
+
+                      <h3 className="font-bold text-navy-800 text-lg mb-2 line-clamp-2 hover:text-red-600 transition-colors">
+                        {article.title}
+                      </h3>
+
+                      <p className="text-light-600 text-sm line-clamp-2 mb-4">
+                        {article.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between text-light-500 text-xs pt-4 border-t border-light-300">
+                        <span className="flex items-center gap-1">
+                          <UserIcon className="w-3 h-3" />
+                          {article.author}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <ClockIcon className="w-3 h-3" />
+                          {article.readTime} min
+                        </span>
+                      </div>
                     </div>
-
-                    <h3 className="font-bold text-white text-lg mb-2 line-clamp-2 hover:text-gold-400 transition-colors">
-                      {article.title}
-                    </h3>
-
-                    <p className="text-dark-400 text-sm line-clamp-2 mb-4">
-                      {article.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between text-dark-500 text-xs mt-auto pt-4 border-t border-navy-700">
-                      <span className="flex items-center gap-1">
-                        <UserIcon className="w-3 h-3" />
-                        {article.author}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <ClockIcon className="w-3 h-3" />
-                        {article.readTime} min
-                      </span>
-                    </div>
-                  </Card>
+                  </div>
                 </Link>
               ))}
             </div>
           ) : (
             <div className="text-center py-16">
-              <p className="text-dark-400 text-lg mb-4">No articles found for this filter.</p>
-              <Button variant="outline" onClick={() => { setActiveCategory('all'); setActiveSport('all'); }}>
+              <p className="text-light-600 text-lg mb-4">No articles found for this filter.</p>
+              <button
+                onClick={() => { setActiveCategory('all'); setActiveSport('all'); }}
+                className="px-6 py-2 border border-light-400 text-navy-700 rounded-lg font-medium hover:bg-light-200 transition-colors"
+              >
                 Clear Filters
-              </Button>
+              </button>
             </div>
           )}
 
           {/* Load More */}
           {filteredArticles.length > 6 && (
             <div className="text-center mt-12">
-              <Button variant="outline" iconRight={<ArrowRightIcon className="w-5 h-5" />}>
+              <button className="inline-flex items-center gap-2 px-6 py-3 border border-light-400 text-navy-700 rounded-lg font-medium hover:bg-light-200 transition-colors">
                 Load More Articles
-              </Button>
+                <ArrowRightIcon className="w-5 h-5" />
+              </button>
             </div>
           )}
         </div>
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-16 bg-gradient-to-r from-gold-600 to-gold-500">
+      <section className="py-16 bg-red-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl font-bold text-white mb-4">
             Get Daily Picks Delivered
           </h2>
-          <p className="text-navy-800 text-lg mb-8">
+          <p className="text-red-100 text-lg mb-8">
             Subscribe to receive expert picks, betting tips, and exclusive promotions.
           </p>
           <Link href="/#newsletter">
-            <Button variant="secondary" size="lg">
+            <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-bold hover:bg-light-100 transition-colors">
               Subscribe Now
-            </Button>
+            </button>
           </Link>
         </div>
       </section>
