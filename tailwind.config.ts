@@ -9,6 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Orange for CTAs (like client reference images)
+        orange: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
         // Gold/Yellow for CTAs (like BetUS)
         gold: {
           50: '#fffbeb',
@@ -82,9 +95,11 @@ const config: Config = {
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
         'gradient-red': 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)',
+        'gradient-orange': 'linear-gradient(135deg, #ea580c 0%, #f97316 100%)',
         'gradient-navy': 'linear-gradient(135deg, #1a2744 0%, #0f172a 100%)',
         'gradient-hero': 'linear-gradient(180deg, #1a2744 0%, #10182c 100%)',
         'gradient-light': 'linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%)',
+        'gradient-purple': 'linear-gradient(135deg, #9333ea 0%, #c026d3 100%)',
       },
     },
   },
